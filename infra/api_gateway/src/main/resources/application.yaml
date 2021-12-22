@@ -1,0 +1,47 @@
+server:
+  port: 8900
+
+spring:
+  application:
+    name: service-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: service-auth
+          uri: lb://service-auth
+          predicates:
+          - Path=/*/acl/**
+        - id: service-edu
+          uri: lb://service-edu
+          predicates:
+          - Path=/edu/**
+        - id: service-cli
+          uri: lb://service-cli
+          predicates:
+          - Path=/ucenter/**
+        - id: service-cms
+          uri: lb://service-cms
+          predicates:
+          - Path=/cms/**
+        - id: service-oss
+          uri: lb://service-oss
+          predicates:
+          - Path=/oss/**
+        - id: service-purchase
+          uri: lb://service-purchase
+          predicates:
+          - Path=/purchase/**
+        - id: service-stat
+          uri: lb://service-stat
+          predicates:
+          - Path=/stat/**
+        - id: service-vod
+          uri: lb://service-vod
+          predicates:
+          - Path=/vod/**

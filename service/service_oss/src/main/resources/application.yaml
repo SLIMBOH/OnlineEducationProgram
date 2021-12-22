@@ -1,0 +1,20 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: service-oss
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+aliyun:
+  oss:
+    file:
+      endpoint: oss-ap-northeast-1.aliyuncs.com
+      keyid: LTAI5tNLPK78zgMkUmBa2aCz
+      keysecret: AA4jSmHggOLV1qMN4xT1VXPqxoCPZY
+      bucketname: ol-edu-bucket
